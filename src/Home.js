@@ -57,7 +57,7 @@ function Home() {
                                 <div className="accordion-body">
                                     <i>{movie.properties.opening_crawl}</i>
                                     <div style={{marginTop: 20}}>
-                                        <a href={"pelicula/" + movie.uid} className="btn btn-dark">Ver</a>
+                                        <a href={"#/pelicula/" + movie.uid} className="btn btn-dark">Ver</a>
                                     </div>
                                 </div>
                             </div>

@@ -89,7 +89,7 @@ function Pelicula() {
                 </div>
 
                 <div style={{ textAlign: "center", paddingTop: 40}}>
-                    <a href={"/"} className="btn btn-dark">Volver</a>
+                    <a href={"/SWgraphs/"} className="btn btn-dark">Volver</a>
                 </div>
             </div>
         </div>
