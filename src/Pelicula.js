@@ -58,6 +58,9 @@ function Pelicula() {
                                     <li className="list-group-item"><strong>Fecha de
                                         estreno:</strong> {movie.properties.release_date}</li>
                                     <li className="list-group-item"><i>{movie.properties.opening_crawl}</i></li>
+                                    <div style={{ textAlign: "center", marginTop: 40 }}>
+                                        <img style={{ margin: "0px auto 40px auto" }} src="https://img.icons8.com/color/48/000000/baby-yoda.png"/>
+                                    </div>
                                 </ul>
                             </div>
                             <div className="tab-pane fade" id="nav-production" role="tabpanel"
@@ -67,6 +70,9 @@ function Pelicula() {
                                     <li className="list-group-item"><h5 className="card-title">Producción</h5></li>
                                     <li className="list-group-item"><strong>Director: </strong> {movie.properties.director}</li>
                                     <li className="list-group-item"><strong>Productor: </strong> {movie.properties.producer}</li>
+                                    <div style={{ textAlign: "center", marginTop: 40 }}>
+                                        <img style={{ margin: "0px auto 40px auto" }} src="https://img.icons8.com/color/48/000000/darth-vader.png"/>
+                                    </div>
                                 </ul>
                             </div>
                             <div className="tab-pane fade" id="nav-numbers" role="tabpanel"
@@ -78,9 +84,12 @@ function Pelicula() {
 
                                     <li className="list-group-item"><strong>Vehículos: </strong> {movie.properties.vehicles.length}</li>
                                     <li className="list-group-item"><strong>Naves: </strong> {movie.properties.starships.length}
-                                </li>
+                                    </li>
                                     <li className="list-group-item"><strong>Planetas: </strong> {movie.properties.planets.length}
-                                </li>
+                                    </li>
+                                    <div style={{ textAlign: "center", marginTop: 40 }}>
+                                        <img style={{ margin: "0px auto 40px auto" }} src="https://img.icons8.com/color/48/000000/star-wars-millenium-falcon.png"/>
+                                    </div>
                                 </ul>
 
                             </div>

@@ -1,16 +1,25 @@
 import logo from './logo.svg';
 import {useEffect, useState} from "react";
 import ReactECharts from "echarts-for-react";
+import './Home.css';
 
 function Home() {
     const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(true)
     const [data, setData] = useState({})
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     useEffect(() => {
         fetch("https://www.swapi.tech/api/films").then((response) => {
             return response.json()
-        }).then((response) => {
+        }).then(async (response) => {
+            // await sleep(1000);
+
             setMovies(response.result)
+            setLoading(false)
 
             const data = response.result.map((movie) => {
                 return {
@@ -25,7 +34,15 @@ function Home() {
                         type: 'treemap',
                         data: data
                     }
-                ]
+                ],
+                color: [
+                    '#c23531',
+                    '#AD7D37',
+                    '#2E557C',
+                    '#381010',
+                    '#334E30',
+                    '#8C271E',
+                ],
             }
 
             setData(option)
@@ -38,8 +55,16 @@ function Home() {
              style={{backgroundColor: "#030303", paddingTop: 40, paddingBottom: 40, minHeight: "100vh"}}>
             <h1 style={{fontFamily: "Jedi", color: "#ffff00", textAlign: "center", marginBottom: 20}}> Gráficos de Star
                 Wars </h1>
-            <div className="container">
-                <div className="accordion" id="accordionExample">
+            <div style={{ textAlign: "center" }}>
+                <img style={{ margin: "0px auto 40px auto" }} src="https://img.icons8.com/color/50/000000/r2-d2.png"/>
+            </div>
+            {loading && <div className="loading" style={{textAlign: "center"}}><div className="inside-loading" style={{margin: "0 auto"}}>
+                <img style={{margin: "0px auto 40px auto"}} src="https://img.icons8.com/color/48/000000/death-star.png"/>
+            </div>
+            </div>}
+
+            {movies.length > 0 && <div className="container">
+                <div><div className="accordion" id="accordionExample">
                     {movies.map((movie) => {
                         return <div className="accordion-item" key={movie.uid}>
                             <h2 className="accordion-header" id={"heading" + movie.uid}>
@@ -65,12 +90,15 @@ function Home() {
                     })}
                 </div>
             </div>
-            <ReactECharts
+                <ReactECharts
                 option={data}
                 notMerge={true}
                 lazyUpdate={true}
                 theme={"light"}
-            />
+                />
+
+            </div>
+            }
             );
         </div>
     );

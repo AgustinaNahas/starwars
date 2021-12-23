@@ -1,0 +1,22 @@
+.loading{
+  overflow: hidden;
+  position: relative;
+  height: 48px;
+  width: 100px;
+  margin: 50px auto;
+}
+
+.loading img {
+  position: absolute;
+  animation: fly 1s linear infinite;
+  transform: translateX(-50%);
+}
+
+@keyframes fly {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 150%;
+  }
+}
